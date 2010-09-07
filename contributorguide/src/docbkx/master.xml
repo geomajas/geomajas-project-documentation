@@ -23,8 +23,8 @@
   ~ You should have received a copy of the GNU Affero General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-<book id="enduser" lang="en">
-	<title>Geomajas end user guide</title>
+<book id="contributor" lang="en">
+	<title>Geomajas contributor guide</title>
 
 	<bookinfo>
 		<copyright>
@@ -42,9 +42,26 @@
 		</authorgroup>
 	</bookinfo>
 
-	<toc></toc>
+	<toc/>
+	<lot/>
 
-	<xi:include href="modules/introduction.xml"
+	<xi:include href="developers.xml"
 				xmlns:xi="http://www.w3.org/2001/XInclude"/>
-	
+	<xi:include href="codingstyle.xml"
+				xmlns:xi="http://www.w3.org/2001/XInclude"/>
+	<xi:include href="spring.xml"
+				xmlns:xi="http://www.w3.org/2001/XInclude"/>
+	<xi:include href="plugin.xml"
+				xmlns:xi="http://www.w3.org/2001/XInclude"/>
+	<xi:include href="jira.xml"
+				xmlns:xi="http://www.w3.org/2001/XInclude"/>
+	<xi:include href="environment.xml"
+				xmlns:xi="http://www.w3.org/2001/XInclude"/>
+	<xi:include href="release.xml"
+				xmlns:xi="http://www.w3.org/2001/XInclude"/>
+	<xi:include href="CLA.xml"
+				xmlns:xi="http://www.w3.org/2001/XInclude"/>
+	<xi:include href="repository.xml"
+				xmlns:xi="http://www.w3.org/2001/XInclude"/>
+
 </book>
