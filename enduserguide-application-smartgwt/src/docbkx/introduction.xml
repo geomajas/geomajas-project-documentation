@@ -13,68 +13,18 @@
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <chapter id="introduction" lang="en">
   <title>Introduction</title>
+    <para>This End-user guide documents the installation, configuration and use of the Example Web GIS Application based on the Geomajas SmartGWT client.</para>
 
-  <section id="download-war">
-    <title>Download the Geomajas SmartGwt Example Project</title>
-
-    <para>You can download example project <ulink
-            url="">an example project</ulink> .
-    </para>
-
-    <para>a) The download consists of a .zip file, containing the source code
-    of the Example Project? If you want to change the source code, unzip the
-    .zip file and change the corresponding files. (Then you would have to build it to a war.)</para>
-
-    <para>b) The downoad is a WAR file (Web application ARchive), containing a
-    compiled application that can be run on a web container.</para>
-
-    <section id="toWar">
-      <title>Creating war from source code? </title>
-
-      <para>Default text.</para>
-    </section>
-
-    <section id="runWar">
-      <title>Running a war file</title>
-
-      <para>To run a war file, you need a web container, e.g. Apache Tomcat.
-      Useful links for Tomcat:</para>
-
-      <para>
-          <ulink
-                  url="http://tomcat.apache.org/tomcat-7.0-doc/setup.html">Installation instructions</ulink> and
-          <ulink url="http://tomcat.apache.org/tomcat-7.0-doc/deployer-howto.html">how to deploy war file</ulink></para>
-
-    </section>
-  </section>
-
-    <section id="archetype">
-        <title>Create a maven project from the SmartGWT archetype</title>
-
-        <para>This is general info: command line creating/running/building Maven projects.</para>
-
-        <section id="prerequisits">
-            <title>Prerequisits: Java and Maven</title>
-
-            <para>The project resulting from running the SmartGWT archetype, is a Maven project, using Java
-                as the coding language. For that reason, both Maven and Java need to be installed on your computer.
-                This section explains how to install and configure both simultaniously.
+    <section id="whatIsIt">
+        <title>What is it?</title>
+            <para>The Example Application is a stand-alone, ready-to-use Web GIS solution. After installation, you can work with the pre-configured sample data layers or you can start adding your own data sources.
             </para>
-        </section>
+            <para>The Application has out-of-the-box functionality for navigating the map, searching data, measuring, feature info, etc.
+            </para>
+    </section>
 
-        <section id="createProject">
-            <title>Creation of the project</title>
-
-            <para>Command line.</para>
-        </section>
-
-        <section id="buildProject">
-            <title>Building project</title>
-
-            <para>The project can be build from the command line of the project folder.    </para>
-            <para>Run "mvn clean install".</para>
-            <para>This will create a war file at location ... .</para>
-
-        </section>
+    <section id="WhoCanUseIt">
+        <title>Who can use it?</title>
+        <para>The Example Application is made as such that it can be used by anybody with average computer skills with and a basic understanding of GIS. No special system administration and programming skills are required.</para>
     </section>
 </chapter>

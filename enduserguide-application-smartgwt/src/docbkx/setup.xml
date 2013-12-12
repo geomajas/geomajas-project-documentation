@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This is part of Geomajas, a GIS framework, http://www.geomajas.org/.
+  ~
+  ~ Copyright 2008-2013 Geosparc nv, http://www.geosparc.com/, Belgium.
+  ~
+  ~ The program is available in open source according to the GNU Affero
+  ~ General Public License. All contributions in this program are covered
+  ~ by the Geomajas Contributors License Agreement. For full licensing
+  ~ details, see LICENSE.txt in the project root.
+  -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<chapter id="setup" lang="en">
+  <title>Setting up the Example Application</title>
+    <para>This chapter describes the different steps you should take to get the application up and running.
+    </para>
+
+    <section id="stepDownload">
+        <title>Download the application</title>
+            <para>Download the Example Application as a stand-alone program HERE. No additional software is required.
+            </para>
+            <para>As an alternative you can download the Example Application as .war file HERE. Use this alternative when you have an application server available to deploy the .war file.
+            </para>
+    </section>
+
+    <section id="stepRun">
+        <title>Run the application</title>
+        <para>The Example Application can be run by PROCESS.</para>
+        <para>Access the example web GIS application using your web browser on the following URL: localhostXXX </para>
+    </section>
+</chapter>

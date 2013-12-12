@@ -13,8 +13,8 @@
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
 		"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <book id="contributor" lang="en">
-	<title>SmartGWT Example Application Guide</title>
-
+	<title>End-user Guide for the Geomajas Example Web Application</title>
+    <subtitle>Using the Geomajas SmartGWT Client</subtitle>
 	<bookinfo>
 		<copyright>
 			<year>2010-2014</year>
@@ -36,7 +36,9 @@
 
 	<xi:include href="introduction.xml"
 				xmlns:xi="http://www.w3.org/2001/XInclude"/>
-    <xi:include href="configuration.xml"
+    <xi:include href="setup.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="basicconfiguration.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"/>
 
 
