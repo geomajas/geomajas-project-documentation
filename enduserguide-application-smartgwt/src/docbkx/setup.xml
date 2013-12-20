@@ -37,7 +37,7 @@
             </listitem>
         </itemizedlist>
 
-        <para>Access the example web GIS application using your web browser on the following URL: localhost:8080 </para>
+        <para>Access the example web GIS application using your web browser on the following URL: http://localhost:8080/geomajas/ </para>
     </section>
 
     <section id="stepStop">
