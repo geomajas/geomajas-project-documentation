@@ -99,13 +99,13 @@
         <ref bean="clientLayerCities" />
     </list>
 </property>]]>
-</programlisting>
+            </programlisting>
 
             <para>The order in which the layers are drawn on the map is defined by the reverse order in the mapMain.xml. In the example above, the OSM layer would be drawn first. The layer CountriesWithFlag would be drawn on top of the first one, etc.</para>
 
             <note>
                 <para>Once you have enabled/disabled a layer, make sure to also include/exclude it from the layer tree!</para>
-                <para>How this is done is explained in SECTION???</para>
+                <para>How this is done is explained in <xref linkend="widgets"/></para>
             </note>
         </section>
 

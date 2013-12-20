@@ -22,12 +22,17 @@
 	<packaging>jar</packaging>
 	<name>SmartGWT Example Application Guide</name>
 	<description>SmartGWT Example Application Guide</description>
-	
+
 	<developers>
+        <developer>
+            <id>janv</id>
+            <name>Jan Venstermans</name>
+            <email>jan.venstermans@dfc.be</email>
+        </developer>
 		<developer>
-			<id>janv</id>
-			<name>Jan Venstermans</name>
-			<email>jan.venstermans@dfc.be</email>
+			<id>frankm</id>
+			<name>Frank Maes</name>
+			<email>frank.maes@geosparc.com</email>
 		</developer>
 	</developers>
 	

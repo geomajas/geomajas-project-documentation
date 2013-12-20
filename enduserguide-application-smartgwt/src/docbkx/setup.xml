@@ -18,15 +18,39 @@
 
     <section id="stepDownload">
         <title>Download the application</title>
-            <para>Download the Example Application as a stand-alone program HERE. No additional software is required.
+            <para>Download the Example Application as a stand-alone program. This program is self-contained, no additional software is required.
             </para>
-            <para>As an alternative you can download the Example Application as .war file HERE. Use this alternative when you have an application server available to deploy the .war file.
+            <para>As an alternative you can download the Example Application as .war file. Use this alternative when you have an application server available to deploy the .war file.
             </para>
     </section>
 
     <section id="stepRun">
-        <title>Run the application</title>
-        <para>The Example Application can be run by PROCESS.</para>
-        <para>Access the example web GIS application using your web browser on the following URL: localhostXXX </para>
+        <title>Run the stand-alone application</title>
+        <para>The Example Application can be run by executing the appropriate startup script depending on your operating system.</para>
+
+        <itemizedlist>
+            <listitem>
+                <para>Use startup.bat for Windows</para>
+            </listitem>
+            <listitem>
+                <para>Use startup.sh for Linux and Mac</para>
+            </listitem>
+        </itemizedlist>
+
+        <para>Access the example web GIS application using your web browser on the following URL: localhost:8080 </para>
+    </section>
+
+    <section id="stepStop">
+        <title>Stopping the stand-alone application</title>
+        <para>The Example Application can be stopped by executing the appropriate shutdown script depending on your operating system.</para>
+
+        <itemizedlist>
+            <listitem>
+                <para>Use shutdown.bat for Windows</para>
+            </listitem>
+            <listitem>
+                <para>Use shutdown.sh for Linux and Mac</para>
+            </listitem>
+        </itemizedlist>
     </section>
 </chapter>
