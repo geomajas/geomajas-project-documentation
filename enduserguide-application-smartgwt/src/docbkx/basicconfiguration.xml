@@ -132,7 +132,7 @@
     <section id="widgets">
         <title>Widget configuration</title>
 
-        <para>The example application has 3 Geomajas widgets configured: the Ribbon Toolbar, the Layer Tree and the Advanced Views.  In this section we will only cover the basic configuration for the Layer Tree. Learn more about widget configuration in the advanced configuration SECTION??? or check the Geomajas plug-in documentation.</para>
+        <para>The example application has 3 Geomajas widgets configured: the Ribbon Toolbar, the Layer Tree and the Advanced Views.  In this section we will only cover the basic configuration for the Layer Tree. Learn more about widget configuration in the Geomajas plug-in documentation.</para>
         <para>The Layer Tree widget configuration is defined in ROOT/WEB-INF/widget/layerTree.xml. The configuration below shows how the different layers are ordered in the layer tree. The ordering of the layers in the tree is defined by the sequence in the configuration file. Layers can be included/excluded from the layer tree by (un)commenting them.</para>
         <programlisting language="xml">
 <![CDATA[<property name="treeNodes">
