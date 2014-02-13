@@ -126,7 +126,7 @@
       <title>Plug-in web context</title>
 
       <para>Each plug-in can have a configuration file in
-      <code>META-INF/geomajasWebContext.xml</code> which is automatically
+      <code>META-INF/geomajasWebContext[suffix].xml</code> which is automatically
       included in the web context for the dispatcher servlet. This is used to
       allow plug-ins to define additional web endpoints without the need to
       define servlet entries in web.xml.</para>

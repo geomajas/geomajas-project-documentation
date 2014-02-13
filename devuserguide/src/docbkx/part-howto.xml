@@ -535,7 +535,7 @@ public class MyController extends RemoteServiceServlet implements MyService, Ser
     &lt;init-param&gt;
       &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
       &lt;param-value&gt;
-        classpath*:META-INF/geomajasWebContext.xml
+		  classpath:org/geomajas/spring/geomajasWebContext.xml
         WEB-INF/mycontroller.xml
       &lt;/param-value&gt;
       &lt;description&gt;Spring Web-MVC specific (additional) context files.&lt;/description&gt;

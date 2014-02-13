@@ -1081,7 +1081,10 @@ private SecurityContext securityContext;</programlisting>
 
       <para>Plug-ins (which include faces) are automatically discovered when
       available on the classpath. This is done using two files:
-      META-INF/geomajasContext.xml and META-INF/geomajasWebContext.xml.</para>
+      META-INF/geomajasContext[suffix].xml and META-INF/geomajasWebContext[suffix].xml.</para>
+	  <para>The suffix is meant to deal with classpath issues where context files
+	  overwrite each other. Each plug-in can therefore define it's own geomajas(Web)Context.xml
+	  file, the classpath is scanned for META-INF/geomajas(Web)Context*.xml</para>
 
       <para>The geomajasContext.xml file contains information about the
       plug-in, the dependencies for the plug-in (which are checked when the
