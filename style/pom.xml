@@ -11,23 +11,15 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
-		<groupId>org.geomajas</groupId>
-		<artifactId>geomajas-parent</artifactId>
-		<version>1.0.9</version>
+		<groupId>org.geomajas.documentation</groupId>
+		<artifactId>docbook</artifactId>
+		<version>1.12.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.geomajas.documentation</groupId>
 	<artifactId>geomajas-jdocbook-style</artifactId>
-	<version>1.0.4-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>JDocBook styles for User Guide for Developers</name>
 	<description>JDocBook styles for User Guide for Developers</description>
-
-	<scm>
-		<connection>scm:svn:https://svn.geomajas.org/majas/trunk/documentation/style</connection>
-		<developerConnection>scm:svn:https://svn.geomajas.org/majas/trunk/documentation/style</developerConnection>
-		<url>http://ci.geomajas.org/svn/repos/Geomajas/list/trunk/documentation/style</url>
-	</scm>
 
 	<licenses>
 		<license>
