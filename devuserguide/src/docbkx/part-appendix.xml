@@ -17,7 +17,30 @@
   <appendix id="appendix-migrating">
     <title>Migrating between Geomajas versions</title>
 
-    <section id="mig-1130">
+	  <section id="mig-1150">
+		  <title>Migrating between Geomajas 1.13.0,1.14.0 and Geomajas (back-end core)
+			  1.15.0</title>
+
+		  <itemizedlist>
+			  <listitem>
+				  <para>Restructured GeomajasContext.xml and GeomajasWebContext.xml</para>
+
+				  <itemizedlist>
+					  <listitem>
+						  <para>Because of possible classpath collisions, the geomajasContext.xml and
+							  geomajasWebContext.xml files are renamed to geomajasContext[pluginname].xml and
+							  geomajasWebContext[pluginname].xml. Make sure that your context-param in the web.xml file
+							  points to
+							  classpath:org/geomajas/spring/geomajasContext.xml and
+							  the init-param of the dispatcherservice
+							  to classpath:org/geomajas/spring/geomajasWebContext.xml</para>
+					  </listitem>
+				  </itemizedlist>
+			  </listitem>
+		  </itemizedlist>
+	  </section>
+
+	  <section id="mig-1130">
       <title>Migrating between Geomajas 1.12.0 and Geomajas (back-end core)
       1.13.0</title>
 
