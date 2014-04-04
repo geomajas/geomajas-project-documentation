@@ -13,23 +13,15 @@
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
-		<groupId>org.geomajas</groupId>
-		<artifactId>geomajas-parent</artifactId>
-		<version>1.0.9</version>
+		<groupId>org.geomajas.documentation</groupId>
+		<artifactId>docbook</artifactId>
+		<version>1.12.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.geomajas.documentation</groupId>
-	<version>1.0.1-SNAPSHOT</version>
 	<artifactId>geomajas-jdocbook-xslt</artifactId>
 	<packaging>jar</packaging>
 	<name>XSLT for User Guide for Developers</name>
 	<description>XSLT for User Guide for Developers</description>
-
-	<scm>
-		<connection>scm:svn:https://svn.geomajas.org/majas/trunk/documentation/xslt</connection>
-		<developerConnection>scm:svn:https://svn.geomajas.org/majas/trunk/documentation/xslt</developerConnection>
-		<url>http://ci.geomajas.org/svn/repos/Geomajas/list/trunk/documentation/xslt</url>
-	</scm>
 
 	<licenses>
 		<license>
@@ -45,16 +37,6 @@
 			<artifactId>docbook</artifactId>
 		</dependency>
 	</dependencies>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>net.sf.docbook</groupId>
-				<artifactId>docbook</artifactId>
-				<version>1.72.0</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<build>
 		<plugins>

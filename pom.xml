@@ -28,10 +28,20 @@
 	</description>
 
 	<scm>
-		<connection>scm:git:git@github.com:geomajas/geomajas-project-server.git</connection>
-		<developerConnection>scm:git:git@github.com:geomajas/geomajas-project-server.git</developerConnection>
-		<url>https://github.com/geomajas/geomajas-project-server.git</url>
+		<connection>scm:git:git@github.com:geomajas/geomajas-project-documentation.git</connection>
+		<developerConnection>scm:git:git@github.com:geomajas/geomajas-project-documentation.git</developerConnection>
+		<url>https://github.com/geomajas/geomajas-project-documentation.git</url>
 	</scm>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>net.sf.docbook</groupId>
+				<artifactId>docbook</artifactId>
+				<version>1.72.0</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
