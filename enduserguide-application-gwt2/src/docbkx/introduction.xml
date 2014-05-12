@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This is part of Geomajas, a GIS framework, http://www.geomajas.org/.
+  ~
+  ~ Copyright 2008-2014 Geosparc nv, http://www.geosparc.com/, Belgium.
+  ~
+  ~ The program is available in open source according to the GNU Affero
+  ~ General Public License. All contributions in this program are covered
+  ~ by the Geomajas Contributors License Agreement. For full licensing
+  ~ details, see LICENSE.txt in the project root.
+  -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<chapter id="introduction" lang="en">
+  <title>Introduction</title>
+    <para>This End-user guide documents the installation, basic configuration and use of the Example Web GIS Application based on the Geomajas GWT2 client.</para>
+
+    <section id="whatIsIt">
+        <title>What is it?</title>
+            <para>The Example Application is a stand-alone, ready-to-use Web GIS solution. After installation, you can work with the pre-configured sample data layers or you can start adding your own data sources.
+            </para>
+            <para>The Application has out-of-the-box functionality for navigating the map.
+            </para>
+    </section>
+
+    <section id="WhoCanUseIt">
+        <title>Who can use it?</title>
+        <para>The Example Application is made as such that it can be used by anybody with average computer skills and a basic understanding of GIS. No special system administration and programming skills are required.</para>
+    </section>
+</chapter>

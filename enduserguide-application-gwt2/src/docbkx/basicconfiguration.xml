@@ -14,7 +14,7 @@
 <chapter id="basic_configuration" lang="en">
   <title>Basic configuration</title>
 
-  <para>This section explains how to configure a number of pre-installed functionality, data layers, widgets and security in the example application.</para>
+  <para>This section explains how to configure a number of pre-installed functionality and data layers in the example application.</para>
 
 	<section id="structure">
 		<title>Configuration files structure</title>
@@ -43,12 +43,6 @@
             </listitem>
             <listitem>
                 <para>Folder "map" - contains mapMain.xml which handles the configuration for the map. Here you can define which widgets should be used, which data layers should be included, etc.</para>
-            </listitem>
-            <listitem>
-                <para>Folder "widget" - contains widget configuration files for the Legend, the Ribbon Toolbar and the Theme Selector.</para>
-            </listitem>
-            <listitem>
-                <para>File "security.xml" - allows you to define the security settings for the application.</para>
             </listitem>
         </orderedlist>
 
@@ -128,41 +122,4 @@
 
         </section>
     </section>
-
-    <section id="widgets">
-        <title>Widget configuration</title>
-
-        <para>The example application has 3 Geomajas widgets configured: the Ribbon Toolbar, the Layer Tree and the Advanced Views.  In this section we will only cover the basic configuration for the Layer Tree. Learn more about widget configuration in the Geomajas plug-in documentation.</para>
-        <para>The Layer Tree widget configuration is defined in ROOT/WEB-INF/widget/layerTree.xml. The configuration below shows how the different layers are ordered in the layer tree. The ordering of the layers in the tree is defined by the sequence in the configuration file. Layers can be included/excluded from the layer tree by (un)commenting them.</para>
-        <programlisting language="xml">
-<![CDATA[<property name="treeNodes">
-    <list>
-        <bean class="org.geomajas.widget.layer.configuration.client.ClientLayerNodeInfo">
-            <property name="layerId" value="clientLayerOsm" />
-        </bean>
-        <!-- <bean class="org.geomajas.widget.layer.configuration.client.ClientLayerNodeInfo">
-            <property name="layerId" value="clientLayerSimplifiedCountriesTms" />
-        </bean> -->
-        <!--<bean class="org.geomajas.widget.layer.configuration.client.ClientLayerNodeInfo">
-            <property name="layerId" value="clientLayerSimplifiedCountriesWms" />
-        </bean> -->
-        <!-- <bean class="org.geomajas.widget.layer.configuration.client.ClientLayerNodeInfo">
-            <property name="layerId" value="clientLayerSimplifiedCountriesWfs" />
-        </bean> -->
-        <!--<bean class="org.geomajas.widget.layer.configuration.client.ClientLayerNodeInfo">
-            <property name="layerId" value="clientLayerCountries" />
-        </bean> -->
-        <bean class="org.geomajas.widget.layer.configuration.client.ClientLayerNodeInfo">
-            <property name="layerId" value="clientLayerCountriesWithFlag" />
-        </bean>
-        <bean class="org.geomajas.widget.layer.configuration.client.ClientLayerNodeInfo">
-            <property name="layerId" value="clientLayerCities" />
-        </bean>
-    </list>
-</property>]]>
-        </programlisting>
-
-        <para>In the example above, there are 3 layers configured in the layer tree: OSM, the Cities layer and the CountriesWithFlag layer. The others are commented out and hence not included in the layer tree. The order in the layer tree can be configured completely independent from the rendering order.</para>
-    </section>
-
 </chapter>
