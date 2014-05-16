@@ -13,13 +13,13 @@
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <chapter id="introduction" lang="en">
   <title>Introduction</title>
-    <para>This End-user guide documents the installation, basic configuration and use of the Example Web GIS Application based on the Geomajas SmartGWT client.</para>
+    <para>This End-user guide documents the installation, basic configuration and use of the Example Web GIS Application based on the Geomajas GWT2 client.</para>
 
     <section id="whatIsIt">
         <title>What is it?</title>
             <para>The Example Application is a stand-alone, ready-to-use Web GIS solution. After installation, you can work with the pre-configured sample data layers or you can start adding your own data sources.
             </para>
-            <para>The Application has out-of-the-box functionality for navigating the map, searching data, measuring, feature info, etc.
+            <para>The Application has out-of-the-box functionality for navigating the map.
             </para>
     </section>
 

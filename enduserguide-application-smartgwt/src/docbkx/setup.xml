@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ This is part of Geomajas, a GIS framework, http://www.geomajas.org/.
+  ~
+  ~ Copyright 2008-2014 Geosparc nv, http://www.geosparc.com/, Belgium.
+  ~
+  ~ The program is available in open source according to the GNU Affero
+  ~ General Public License. All contributions in this program are covered
+  ~ by the Geomajas Contributors License Agreement. For full licensing
+  ~ details, see LICENSE.txt in the project root.
+  -->
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<chapter id="setup" lang="en">
+  <title>Setting up the Example Application</title>
+    <para>This chapter describes the different steps you should take to get the application up and running.
+    </para>
+
+    <section id="stepDownload">
+        <title>Download the application</title>
+            <para>Download the Example Application as a stand-alone program. This program is self-contained, no additional software is required.
+            </para>
+            <para>As an alternative you can download the Example Application as .war file. Use this alternative when you have an application server available to deploy the .war file.
+            </para>
+            <para>All downloads are available on the following URL: http://www.geomajas.org/download/
+            </para>
+    </section>
+
+    <section id="stepRun">
+        <title>Run the stand-alone application</title>
+        <para>The Example Application can be run by executing the appropriate startup script depending on your operating system.</para>
+
+        <itemizedlist>
+            <listitem>
+                <para>Use startup.bat for Windows</para>
+            </listitem>
+            <listitem>
+                <para>Use startup.sh for Linux and Mac</para>
+            </listitem>
+        </itemizedlist>
+
+        <para>Access the example web GIS application using your web browser on the following URL: http://localhost:8080/geomajas/ </para>
+    </section>
+
+    <section id="stepStop">
+        <title>Stopping the stand-alone application</title>
+        <para>The Example Application can be stopped by executing the appropriate shutdown script depending on your operating system.</para>
+
+        <itemizedlist>
+            <listitem>
+                <para>Use shutdown.bat for Windows</para>
+            </listitem>
+            <listitem>
+                <para>Use shutdown.sh for Linux and Mac</para>
+            </listitem>
+        </itemizedlist>
+    </section>
+</chapter>

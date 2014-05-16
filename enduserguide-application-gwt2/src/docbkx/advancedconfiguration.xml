@@ -12,51 +12,113 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <chapter id="configuration" lang="en">
-  <title>Basic configuration of the archetype's layers, widgets and security.</title>
+  <title>Configuration of the Example Application</title>
 
-  <para>This section explains how to activate or deactivate a number of pre-installed functionalities in the
-  SmartGwt archetype. For each functionality, a link to their specific documentation document is included.</para>
+  <para>This section explains how to configure a number of pre-installed functionality, data layers, widgets and security in the example application. For each functionality, a link to their specific documentation document is included.</para>
 
 	<section id="structure">
-		<title>Project structure</title>
+		<title>Configuration files structure</title>
+        <para>The configuration is done in XML files. Depending on the installation you chose you can find the configuration files under ROOT/WEB-INF.
+        </para>
 
+        <itemizedlist>
+            <listitem>
+                <para>Stand-alone application (.zip) : ROOT = installation-directory/webapps/geomajas/</para>
+            </listitem>
+            <listitem>
+                <para>Web archive (.war) : ROOT = war file</para>
+            </listitem>
+        </itemizedlist>
+
+        <para>The WEB-INF folder contains most important configuration files. The following scheme shows how the configuration files are structured</para>
 		<mediaobject>
 			<imageobject>
-				<imagedata fileref="images/smartgwt-archetype-structure.png" width="100%" />
+				<imagedata fileref="images/WEB-INF-folder.png" scale="100%" />
 			</imageobject>
 		</mediaobject>
-		<para>Structure discription.</para>
+
+        <para>WEB-INF folder</para>
+
+        <orderedlist>
+            <listitem>
+                <para>Folder "layer" - contains layer configuration files including SLDs.</para>
+            </listitem>
+            <listitem>
+                <para>Folder "map" - contains mapMain.xml which handles the configuration for the map. Here you can define which widgets should be used, which data layers should be included, etc.</para>
+            </listitem>
+            <listitem>
+                <para>Folder "widget" - contains widget configuration files for the Legend, the Ribbon Toolbar and the Theme Selector.</para>
+            </listitem>
+            <listitem>
+                <para>File "security.xml" - allows you to define the security settings for the application.</para>
+            </listitem>
+        </orderedlist>
+
 	</section>
-  <section id="layers">
-    <title>Layers</title>
 
-      <para>Geomajas is a GIS framework, so the central activity is on the map of the application.
-      A map will generaly display a number of different layers, each on top of the other.</para>
+    <section id="layers">
+        <title>Layer configuration</title>
 
-        <para>To add a layer to the map, a number of changes need to be performed.
-            We explain the general scheme as it is used in the example application.</para>
+        <para>In the example application the layers are grouped by supported layer type (OSM, SHP, TMS, WFS and WMS). The scheme below shows the configured layers per layer type in the "layers" folder. Also a set of SLD files for the layers are stored.
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/Layer-folder.png" scale="100%" />
+            </imageobject>
+        </mediaobject>
+
+        <para>For each layer 2 configuration files are required:
+        </para>
+
+        <itemizedlist>
+            <listitem>
+                <para>layerNAME.xml : server-side layer configuration defines the layer type, the data source, the geometry type, the CRS of the source, the bounding box, the layer attributes and the SLD file.</para>
+            </listitem>
+            <listitem>
+                <para>clientLayerNAME.xml : client-side layer configuration defines layer name, the minimum and maximum zoom level the layer is visible, etc.</para>
+            </listitem>
+        </itemizedlist>
+
+        <orderedlist>
+            <listitem>
+                <para>Define a server side Layer configuration</para>
+            </listitem>
+            <listitem>
+                <para>Define a client side Layer object</para>
+                <para>In file ROOT/WEB-INF/OSM/clientLayerOsm.xml, a bean "clientLayerOsm" of
+                    class ClientRasterLayerInfo is defined. This bean refers to the created Layer object.</para>
+            </listitem>
+        </orderedlist>
+
         <orderedlist>
         <listitem>
-            <para>Define a server side Layer object with the specific properties. Normally, this definition is in an xml file.</para>
-			<para>e.g.: In file src/main/webapp/WEB-INF/OSM/layerOsm.xml, a bean "layerOsm" of class OsmLayer is defined.</para>
+            <para>Define a server side Layer object</para>
+                with the specific properties. Normally, this definition is in an xml file.
+			<para>e.g.: In file ROOT/WEB-INF/OSM/layerOsm.xml, a bean "layerOsm" of class OsmLayer is defined.</para>
         </listitem>
+
         <listitem>
             <para>Define a client side ClientLayerInfo object for the layer. Normally, this definition is in an xml file.</para>
 				<para>e.g. In file src/main/webapp/WEB-INF/OSM/clientLayerOsm.xml, a bean "clientLayerOsm" of
 					class ClientRasterLayerInfo is defined. This bean refers to the created Layer object.</para>
         </listitem>
+
         <listitem>
             <para>Add both new XML files to the web application path in the src/main/webapp/WEB-INF/web.xml file.</para>
-			<programlisting language="xml"><![CDATA[<context-param>
-    <param-name>contextConfigLocation</param-name>
-        <param-value>
-        ...
-        WEB-INF/layer/OSM/clientLayerOsm.xml
-        WEB-INF/layer/OSM/layerOsm.xml
-        ...
-    </param-value>
-</context-param>]]></programlisting>
+			<programlisting language="xml">
+                <![CDATA[<context-param>
+                <param-name>contextConfigLocation</param-name>
+                <param-value>
+                    ...
+                    WEB-INF/layer/OSM/clientLayerOsm.xml
+                    WEB-INF/layer/OSM/layerOsm.xml
+                    ...
+                </param-value>
+                </context-param>]]>
+            </programlisting>
         </listitem>
+
         <listitem>
             <para>Show the layer on the map.</para>
 			<para>In file src/main/webapp/WEB-INF/map/mainMap, the mainMap property "layers" contains a list of the layers that are presented in the map.
@@ -96,10 +158,10 @@
 			  	info</ulink>.</para></listitem>
 			<listitem>  <para>TMS layer
 				<ulink url="http://files.geomajas.org/maven/trunk/geomajas/geomajas-layer-tms-documentation/html/master.html">
-				info</ulink>.</para></listitem>
+				SLD document</ulink>.</para></listitem>
 	  </itemizedlist >
 	</section>
-	<section id="vetorLayers">
+	<section id="vectorLayers">
 		<title>Vector Layers</title>
 		<para>The different types of raster layers are supported by plugins.</para>
 	  <itemizedlist id="vectorLayers">
