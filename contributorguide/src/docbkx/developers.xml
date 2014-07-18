@@ -18,19 +18,7 @@
   <section id="maveninfo">
     <title>maven compilation, targets, profiles, variables</title>
 
-    <para>When doing an initial compilation of Geomajas, you may need to start
-    compilation from the "build-tools" and then the "backend" directories.
-    Only when these are compiled, compilation from the project root will
-    succeed.</para>
-
-    <programlisting>cd build-tools
-mvn install
-cd backend
-mvn install
-cd ..
-mvn install</programlisting>
-
-    <para>The source contains one main pom which allows building of the
+    <para>The source code of the Geomajas projects contains one main pom which allows building of the
     Geomajas framework and each of the sample applications in one go.</para>
 
     <para>You can also choose to build them individually.</para>
@@ -87,12 +75,14 @@ mvn install</programlisting>
       <title>Running the example applications</title>
 
       <para>Once you have done a "<code>mvn install</code>" on either the
-      entire tree or the "Geomajas" directory, you can use maven to run the
+      entire tree or an "example" directory, you can use maven to run the
       example applications.</para>
 
-      <para>For the gwt client projects, you have three options. Once in the
-      geomajas-gwt-simple directory, you can run the application in
-      development mode using <programlisting>mvn gwt:run</programlisting></para>
+      <para>For the GWT client projects, you have three options. First, go to the example directory, e.g.
+		  "geomajas-client-gwt2-example" for GWT2 client showcase. Then,</para>
+		<orderedlist>
+		<listitem>you can run the application in
+      development mode using <programlisting>mvn gwt:run</programlisting></listitem>
 
       <note>
         <para>Due to classpath problems and the gwt-maven-plugin which does
@@ -100,14 +90,15 @@ mvn install</programlisting>
         can fail on some systems.</para>
       </note>
 
-      <para>You can also use jetty to run the normally built
-      application<programlisting>mvn jetty:run</programlisting></para>
+      <listitem>you can also use jetty to run the normally built
+      application<programlisting>mvn jetty:run</programlisting></listitem>
 
-      <para>Alternatively you can run the actual war using <programlisting>mvn jetty:run-war</programlisting><note>
+      <listitem>you can run the actual war using <programlisting>mvn jetty:run-war</programlisting><note>
           <para>It can be advisable to run "mvn clean" between "gwt:run" and
           "jetty:run-war" or the classpath problem from the previous footnote
           may appear again.</para>
-        </note></para>
+        </note></listitem>
+		</orderedlist>
     </section>
   </section>
 
@@ -262,13 +253,13 @@ for (String line : lines) {
   </section>
 
   <section id="commits">
-    <title>subversion, commits</title>
+    <title>Git, commits</title>
 
     <para>New committers need to sign an agreement which hands over copyright
     to Geosparc. Policies are needed for assigning commit rights (see
     below).</para>
 
-    <para>All SVN commits should include the JIRA issue number at the start of
+    <para>All Git commits should include the JIRA issue number at the start of
     the commit message, and a short description of the work done. The JIRA
     issue number allows linking the commits with the issues (as can be seen in
     JIRA), the short message allows persons to know what is happening without
@@ -281,7 +272,7 @@ for (String line : lines) {
     issue)).</para>
 
     <para>Development of the "latest-and-greatest" version happens in
-    "trunk".</para>
+    the "master" branch.</para>
 
     <para>Continued development on earlier versions (when not
     "latest-and-greatest") occur in branches with the future version number as
@@ -313,7 +304,7 @@ for (String line : lines) {
         </listitem>
 
         <listitem>
-           all logging is done through slf4f, logger is created using 
+           all logging is done through slf4j, logger is created using
 
           <programlisting>private final Logger log = LoggerFactory.getLogger( ContainingClassName.class );</programlisting>
 
