@@ -39,12 +39,6 @@ mvn install</programlisting>
     development:</para>
 
     <itemizedlist>
-      <listitem>
-        <para><code>-DskipShrink</code>: do not use shrinking when building or
-        using the dojo face. When not specified, a shrinked version of the
-        javascript files is used. The files are compressed and combined for
-        faster loading and better caching.</para>
-      </listitem>
 
       <listitem>
         <para>-DskipDocs: do not build the documentation module. Can speed up
@@ -89,38 +83,6 @@ mvn install</programlisting>
 &lt;set-property name="user.agent" value="gecko1_8" /&gt;</programlisting></para>
     </section>
 
-    <section id="dojobuild">
-      <title>dojo build</title>
-
-      <para>For development using the dojo face, apart from using the
-      "-DskipShrink" setting mentioned higher, you may also want to configure
-      the ResourceController to try to directly read the JavaScript files from
-      disk before looking at the classpath (it also changes the cache
-      headers). This allows a simple refresh in the browser to load the
-      changed versions. You can configure this using a init-param for the
-      dispatcher servlet, like in this example.</para>
-
-      <para><programlisting>&lt;servlet&gt;
-    &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;
-    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
-    &lt;init-param&gt;
-        &lt;param-name&gt;files-location&lt;/param-name&gt;
-        &lt;param-value&gt;/home/me/apps/java/geomajas/geomajas/geomajas-dojo-client/src/main/resources&lt;/param-value&gt;
-        &lt;description&gt;
-            When this is specified, files are searched here first.
-            Files which are found at this locations are not cached.
-        &lt;/description&gt;
-    &lt;/init-param&gt;
-    &lt;init-param&gt;
-        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-        &lt;param-value&gt;classpath:org/geomajas/spring/geomajasWebContext.xml&lt;/param-value&gt;
-        &lt;description&gt;Spring Web-MVC specific (additional) context files.&lt;/description&gt;
-    &lt;/init-param&gt;
-    &lt;load-on-startup&gt;3&lt;/load-on-startup&gt;
-&lt;/servlet&gt;
-</programlisting></para>
-    </section>
-
     <section id="runexample">
       <title>Running the example applications</title>
 
@@ -128,10 +90,7 @@ mvn install</programlisting>
       entire tree or the "Geomajas" directory, you can use maven to run the
       example applications.</para>
 
-      <para>For the dojo face, you can run the examples using (when in the
-      geomajas-dojo-example directory) <programlisting>mvn jetty:run</programlisting></para>
-
-      <para>For the gwt face, you have three options. Once in the
+      <para>For the gwt client projects, you have three options. Once in the
       geomajas-gwt-simple directory, you can run the application in
       development mode using <programlisting>mvn gwt:run</programlisting></para>
 
@@ -175,7 +134,7 @@ mvn install</programlisting>
         </listitem>
       </itemizedlist></para>
 
-    <para>Apart from that, each face and each plug-in has their own
+    <para>Apart from that, each client project and each plug-in has their own
     documentation.</para>
 
     <para>All documentation is written in docbook format to allow both PDF and
@@ -196,7 +155,7 @@ mvn install</programlisting>
     The build process for the documentation automatically updates these
     excepts. The directories which have to be scanned for excepts are
     specified in the pom. When this includes code which is not in the current
-    versioned entity (the root directory for the face or plug-in), then the
+    versioned entity (the root directory for the client project or plug-in), then the
     source needs to be obtained from a dependency and unpacked. Excerpts can
     be annotated using annotations like</para>
 

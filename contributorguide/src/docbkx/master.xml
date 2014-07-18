@@ -22,8 +22,6 @@
 			<holder>Geosparc nv</holder>
 		</copyright>
 
-		<releaseinfo><?eval ${project.version}?></releaseinfo>
-
 		<productname>Geomajas</productname>
 
 		<authorgroup>

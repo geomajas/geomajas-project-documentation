@@ -157,7 +157,7 @@
       <para>The Geomajas repository can be found at <ulink
       url="https://svn.geomajas.org/majas">https://svn.geomajas.org/majas</ulink>.
       The standard SVN repository layout is followed: trunk, tags and
-      branches. For the latest and greatest code (including GWT face) you
+      branches. For the latest and greatest code (including the GWT2 client project) you
       should check out the trunk:<ulink
       url="https://svn.geomajas.org/majas/trunk">https://svn.geomajas.org/majas/trunk</ulink>.</para>
     </section>
@@ -247,7 +247,7 @@
     the setup described in "Running/debugging with the Google Plug-in for
     Eclipse (embedded Jetty option)". The embedded Jetty setup is needed to
     avoid problems with references to multiple versions of Geomajas artifacts
-    like the backend. When using the direct GWT setup, these artifacts are not
+    like the server project. When using the direct GWT setup, these artifacts are not
     always correctly mediated. </para>
 
     <section>
@@ -329,7 +329,7 @@
       </mediaobject>
     </figure>
 
-    <para>Developing with the GWT face will require you to install the latest
+    <para>Developing with the GWT2 client project will require you to install the latest
     version of IntelliJ IDEA (9.0) as this is the only version that supports
     GWT 2.0. The IDE will recognize the GWT projects and assign the correct
     facet but as always you will have to make your own run configuration
@@ -361,17 +361,8 @@
     <title>Maven</title>
 
     <para>If you are working with another IDE or not using an IDE, it is
-    always possible to run the example projects directly from maven. For the
-    Dojo face (geomajas-dojo-simple and geomajas-dojo-example-war) the maven
-    command is as follows:</para>
-
-    <para><prompt>geomajas-dojo-simple&gt;</prompt> <command>mvn jetty:run
-    </command></para>
-
-    <para>This command will start up the Jetty servlet engine, after which you
-    can connect to the process for debugging.</para>
-
-    <para>In a GWT project, you should run the following goal:</para>
+    always possible to run the example projects directly from maven.
+		In a GWT client project, you should run the following goal:</para>
 
     <para><prompt>geomajas-gwt-simple&gt;</prompt> <command>mvn gwt:debug
     </command></para>

@@ -15,7 +15,7 @@
   <title>How to release Geomajas</title>
 
   <para>The Geomajas project consists of many pieces which each have their own
-  release cycle. The most important parts are the back-end, faces and
+  release cycle. The most important parts are the server project, client projects and
   plug-ins. The example programs, documentation and and build tools also have
   individual release cycles.</para>
 
@@ -203,7 +203,7 @@
 
         <listitem>
           <para>Do a "mvn dependency:tree" and check that all dependencies
-          (excluding the back-end/plug-in dependencies) are included with the
+          (excluding the geomajas server/plug-in dependencies) are included with the
           license and/or copyright message.</para>
         </listitem>
       </itemizedlist>
@@ -502,9 +502,9 @@
   </section>
 
   <section>
-    <title>Additional notes for releasing the back-end</title>
+    <title>Additional notes for releasing the Geomajas server project</title>
 
-    <para>When releasing the back-end core, you will have problems building
+    <para>When releasing the Geomajas server project, you will have problems building
     the javadocs. Once the "release:perform" failed, execute the following
     steps.</para>
 
@@ -513,12 +513,12 @@ mvn install
 cd ../..
 mvn release:perform</programlisting>
 
-    <para>At this moment, the back-end should be available in sonatype.
+    <para>At this moment, the server project should be available in sonatype.
     Download one of the jars and check the contents to see if all is well. If
-    it is, close the staging repository to place the back-end officially in
+    it is, close the staging repository to place the server project officially in
     staging.</para>
 
-    <para>When releasing the back-end, you must also be aware that this
+    <para>When releasing the Geomajas server project, you must also be aware that this
     releases only the modules within the backend folder. The following modules
     might need to be released separately:</para>
 
@@ -573,9 +573,9 @@ mvn release:perform</programlisting>
   </section>
 
   <section>
-    <title>Additional notes for releasing the GWT face</title>
+    <title>Additional notes for releasing a GWT client project</title>
 
-    <para>Before releasing the GWT face, make sure that the “getVersion”
+    <para>Before releasing a GWT client project (e.g. GWT2 client project), make sure that the “getVersion”
     method in the Geomajas.java class has been set to the correct
     version.</para>
   </section>
@@ -659,7 +659,7 @@ mvn release:perform</programlisting>
     <title>Additional notes for releasing the GWT showcase</title>
 
     <para>Just like the geomajas-dep and the archetype, the showcase must be
-    built upon the new stable releases of the back-end and GWT client.</para>
+    built upon the new stable releases of the server project and GWT2 client project.</para>
 
     <section>
       <title>Finish the release</title>
@@ -678,15 +678,15 @@ mvn release:perform</programlisting>
     before releasing. Don't forget the the version of geomajas-dep should
     reflect the &lt;major&gt;.&lt;year&gt;.&lt;week&gt;, where the week number
     should be even. Example: 1.11.4, means the 4th week in 2011. The major
-    number should be equal to the back-end version referenced in the
+    number should be equal to the server version referenced in the
     pom.xml.</para>
   </section>
 
   <section>
     <title>Possible problems and solutions</title>
 
-    <para>When releasing the back-end core, there may be a problem building
-    the javadocs. The solution can be to do a local build of the back-end
+    <para>When releasing the server core, there may be a problem building
+    the javadocs. The solution can be to do a local build of the server
     using the next release version before doing the actual release.</para>
 
     <para>The documentation uses the example applications for extracting code
@@ -716,7 +716,7 @@ mvn release:perform</programlisting>
       </listitem>
 
       <listitem>
-        <para>introduction of a GWT face</para>
+        <para>introduction of a GWT client project</para>
       </listitem>
     </itemizedlist>
 
