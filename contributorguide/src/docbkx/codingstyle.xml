@@ -176,16 +176,14 @@ References
 
        
 
-      <para>Note that the end year (shown here is 2010) should always be the
+      <para>Note that the end year should always be the
       current year. All headers will be updated at the beginning of each
       year.</para>
 
        
 
       <itemizedlist>
-        <listitem>The copyright message should be at the top of the file.
-        However, for js files, it is allowed to have the "dojo.provide" line
-        above the copyright as this helps for debugging.</listitem>
+        <listitem>The copyright message should be at the top of the file.</listitem>
 
         <listitem>Each class and interface should have class comments
         indicating the purpose of the class.</listitem>

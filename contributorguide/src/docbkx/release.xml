@@ -15,7 +15,7 @@
   <title>How to release Geomajas</title>
 
   <para>The Geomajas project consists of many pieces which each have their own
-  release cycle. The most important parts are the back-end, faces and
+  release cycle. The most important parts are the server project, client projects and
   plug-ins. The example programs, documentation and and build tools also have
   individual release cycles.</para>
 
@@ -102,7 +102,7 @@
     <section>
       <title>Maven Checks</title>
 
-      <para>Next you have to make sure that you have a personal SVN profile
+      <para>Next you have to make sure that you have a personal Git profile
       configured in your maven settings.xml. Concretely, make sure you have a
       settings.xml file in your maven directory (~/.m2/settings.xml) with the
       following content:</para>
@@ -110,9 +110,9 @@
       <programlisting>&lt;settings&gt; 
     &lt;servers&gt; 
         &lt;server&gt; 
-            &lt;id&gt;svn.geomajas.org&lt;/id&gt; 
-            &lt;username&gt;my SVN username&lt;/username&gt; 
-            &lt;password&gt;my SVN password&lt;/password&gt; 
+            &lt;id&gt;github.com/geomajas&lt;/id&gt;
+            &lt;username&gt;my Git username&lt;/username&gt;
+            &lt;password&gt;my Git password&lt;/password&gt;
         &lt;/server&gt; 
     &lt;/servers&gt; 
     &lt;server&gt; 
@@ -137,7 +137,7 @@
 
     <orderedlist>
       <listitem>
-        <para>Prepare release (on trunk)</para>
+        <para>Prepare release (on master)</para>
       </listitem>
 
       <listitem>
@@ -203,7 +203,7 @@
 
         <listitem>
           <para>Do a "mvn dependency:tree" and check that all dependencies
-          (excluding the back-end/plug-in dependencies) are included with the
+          (excluding the geomajas server/plug-in dependencies) are included with the
           license and/or copyright message.</para>
         </listitem>
       </itemizedlist>
@@ -224,12 +224,13 @@
       plug-in do all the work for us. Essentially, it is a two-step procedure:
       first prepare the release, then perform the release.</para>
 
-      <para>Make sure you start with a fresh checkout from trunk before
-      actually attempting to release anything. Checkout command:</para>
+      <para>Make sure you start with a fresh checkout from github before
+      actually attempting to release anything. Checkout command for GWT2 client project:</para>
 
-      <programlisting>svn checkout https://svn.geomajas.org/majas/trunk &lt;destination folder&gt;</programlisting>
+      <programlisting>git clone git@github.com:geomajas/geomajas-project-client-gwt2.git &lt;destination folder&gt;
+		 git checkout &lt;branch name&gt;</programlisting>
 
-      <para>It might be that after the checkout you have to make sure that you
+      <para>It might be that after the clone/checkout you have to make sure that you
       have write access to all files and folders within the newly created
       &lt;destination folder&gt;.</para>
 
@@ -319,7 +320,7 @@
 
       <itemizedlist>
         <listitem>
-          <para>Update trunk. Check if the versions have rolled to the next
+          <para>Update master branch. Check if the versions have rolled to the next
           snapshot version.</para>
         </listitem>
 
@@ -502,9 +503,9 @@
   </section>
 
   <section>
-    <title>Additional notes for releasing the back-end</title>
+    <title>Additional notes for releasing the Geomajas server project</title>
 
-    <para>When releasing the back-end core, you will have problems building
+    <para>When releasing the Geomajas server project, you will have problems building
     the javadocs. Once the "release:perform" failed, execute the following
     steps.</para>
 
@@ -513,35 +514,27 @@ mvn install
 cd ../..
 mvn release:perform</programlisting>
 
-    <para>At this moment, the back-end should be available in sonatype.
+    <para>At this moment, the server project should be available in sonatype.
     Download one of the jars and check the contents to see if all is well. If
-    it is, close the staging repository to place the back-end officially in
+    it is, close the staging repository to place the server project officially in
     staging.</para>
 
-    <para>When releasing the back-end, you must also be aware that this
-    releases only the modules within the backend folder. The following modules
-    might need to be released separately:</para>
+    <para>When releasing the Geomajas server project, you must also be aware that this
+    releases only the modules within the server project, not the client side code.
+		A separate release of the client project or other projects might be necessary:</para>
 
     <itemizedlist>
       <listitem>
-        <para>documentation (user guide, contributor guide, getting started
+        <para>documentation project (user guide, contributor guide, getting started
         guide)</para>
       </listitem>
 
       <listitem>
-        <para>geomajas-dep</para>
+        <para>GWT2 client project</para>
       </listitem>
 
       <listitem>
-        <para>GWT client</para>
-      </listitem>
-
-      <listitem>
-        <para>GWT archetype</para>
-      </listitem>
-
-      <listitem>
-        <para>GWT showcase</para>
+        <para>GWT client projec</para>
       </listitem>
     </itemizedlist>
 
@@ -573,120 +566,32 @@ mvn release:perform</programlisting>
   </section>
 
   <section>
-    <title>Additional notes for releasing the GWT face</title>
+    <title>Additional notes for releasing a GWT client project</title>
 
-    <para>Before releasing the GWT face, make sure that the “getVersion”
+    <para>Before releasing the GWT client project, make sure that the “getVersion”
     method in the Geomajas.java class has been set to the correct
-    version.</para>
+    version. An equivalent in GWT2 client project does not exist.</para>
+
+	  <section>
+		  <title>Finish the release</title>
+
+		  <para>Upload the war of the showcase module to apps.geomajas.org.</para>
+
+	  </section>
   </section>
 
   <section>
-    <title>Additional notes for releasing the GTW archetype</title>
+    <title>Additional notes for releasing a quickstart application</title>
 
-    <para>The GWT archetype is usually released after the release of the GWT
-    client. Before actually starting, make sure that the dependency versions
-    are correct in:</para>
+    <para>TODO</para>
 
-    <para><code>geomajas-gwt-archetype/src/main/resources/archetype-resources/pom.xml</code></para>
-
-    <para>After the archetype has been released, one must be able to test it
-    while it is in staging. In order to do so the pointer to the correct
-    repository for the archetype must used. This pointer is provided by the
-    file: <ulink
-    url="http://files.geomajas.org/archetype-staging.xml">http://files.geomajas.org/archetype-staging.xml</ulink></para>
-
-    <para>This file must therefore be updated to make use of the newest
-    version. It should look like:</para>
-
-    <programlisting>&lt;?xml version="1.0" encoding="UTF-8"?&gt; 
-&lt;archetype-catalog 
-  xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0
-  http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd"&gt; 
-  &lt;archetypes&gt; 
-    &lt;archetype&gt; 
-      &lt;groupId&gt;org.geomajas&lt;/groupId&gt; 
-      &lt;artifactId&gt;geomajas-gwt-archetype&lt;/artifactId&gt; 
-      &lt;version&gt;1.8.0&lt;/version&gt; 
-      &lt;description&gt;Geomajas GWT application archetype&lt;/description&gt; 
-      &lt;repository&gt;https://oss.sonatype.org/content/groups/staging&lt;/repository&gt; 
-    &lt;/archetype&gt; 
-  &lt;/archetypes&gt; 
-&lt;/archetype-catalog&gt;</programlisting>
-
-    <para>The correct command to create a new Geomajas project using the
-    archetype in staging is:</para>
-
-    <programlisting>mvn archetype:generate -DarchetypeCatalog=http://files.geomajas.org/archetype-staging.xml</programlisting>
-
-    <para>Make sure that this command is also mentioned in the vote mail on
-    the majas-dev mailing list.</para>
-
-    <section>
-      <title>Finish the staging procedure</title>
-
-      <para>On gaya,
-      update/var/www/files.geomajas.org/htdocs/archetype-latest.xml. Make sure
-      the version is correct.</para>
-    </section>
-
-    <section>
-      <title>Start a vote for the release</title>
-
-      <para>On gaya,
-      update/var/www/files.geomajas.org/htdocs/archetype-staging.xml. Make
-      sure the version is correct.</para>
-
-      <para>Include the command to try the archetype in the vote
-      message.</para>
-
-      <para>It is recommended to start this vote only when all modules which
-      are referenced are already released. In that case, you don't have to
-      mention the staging repository in the vote message.</para>
-    </section>
-
-    <section>
-      <title>Finish the release</title>
-
-      <para>On gaya,
-      update/var/www/files.geomajas.org/htdocs/archetype-catalog.xml. Make
-      sure the version is correct.</para>
-    </section>
-  </section>
-
-  <section>
-    <title>Additional notes for releasing the GWT showcase</title>
-
-    <para>Just like the geomajas-dep and the archetype, the showcase must be
-    built upon the new stable releases of the back-end and GWT client.</para>
-
-    <section>
-      <title>Finish the release</title>
-
-      <para>Upload war files to sourceforge download area.</para>
-
-      <para>Update the showcase on gaya. Make sure the Google API key is
-      set.</para>
-    </section>
-  </section>
-
-  <section>
-    <title>Additional notes for releasing Geomajas-dep</title>
-
-    <para>Update the aggregate.sh as well as the dependencies in the pom
-    before releasing. Don't forget the the version of geomajas-dep should
-    reflect the &lt;major&gt;.&lt;year&gt;.&lt;week&gt;, where the week number
-    should be even. Example: 1.11.4, means the 4th week in 2011. The major
-    number should be equal to the back-end version referenced in the
-    pom.xml.</para>
   </section>
 
   <section>
     <title>Possible problems and solutions</title>
 
-    <para>When releasing the back-end core, there may be a problem building
-    the javadocs. The solution can be to do a local build of the back-end
+    <para>When releasing the server core, there may be a problem building
+    the javadocs. The solution can be to do a local build of the server
     using the next release version before doing the actual release.</para>
 
     <para>The documentation uses the example applications for extracting code
@@ -716,7 +621,7 @@ mvn release:perform</programlisting>
       </listitem>
 
       <listitem>
-        <para>introduction of a GWT face</para>
+        <para>introduction of a GWT client project</para>
       </listitem>
     </itemizedlist>
 

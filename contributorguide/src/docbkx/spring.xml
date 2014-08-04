@@ -132,8 +132,8 @@ private postConstruct() {
 
       <para>The "contextConfigLocation" context parameter is a space separated
       list of Spring context files. The root Geomajas context - which is
-      contained in the Geomajas backend - should always be put on top of this
-      list. The root context will load all the predefined back-end services
+      contained in the Geomajas server project - should always be put on top of this
+      list. The root context will load all the predefined server services
       and automatically import plug-in context files of all the available
       plug-ins on the class path. Below that you may specify additional
       application context definition files which are needed for your
