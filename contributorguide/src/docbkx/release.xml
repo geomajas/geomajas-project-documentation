@@ -15,9 +15,9 @@
   <title>How to release Geomajas</title>
 
   <para>The Geomajas project consists of many pieces which each have their own
-  release cycle. The most important parts are the server project, client projects and
-  plug-ins. The example programs, documentation and and build tools also have
-  individual release cycles.</para>
+  release cycle. The most important parts are the server project, client
+  projects and plug-ins. The example programs, documentation and and build
+  tools also have individual release cycles.</para>
 
   <para>This chapter tries to explain how to release any of these modules. The
   procedure is similar for all modules, but there are some specific checks to
@@ -203,18 +203,19 @@
 
         <listitem>
           <para>Do a "mvn dependency:tree" and check that all dependencies
-          (excluding the geomajas server/plug-in dependencies) are included with the
-          license and/or copyright message.</para>
+          (excluding the geomajas server/plug-in dependencies) are included
+          with the license and/or copyright message.</para>
         </listitem>
       </itemizedlist>
 
       <para>Commit any changes you have had to make.</para>
-      
-      <para>Create a next version in JIRA, and release the current version. Make sure there exists
-      a version for issues that are accepted but not planned to be included in the next release. 
-      For example when you want to release version 1.14.0, there should also be a version 1.15.0 
-      and "1.16.0 or later". To limit the amount of JIRA mails on the mailinglist, please rename versions
-      instead of mass moving issues.</para>
+
+      <para>Create a next version in JIRA, and release the current version.
+      Make sure there exists a version for issues that are accepted but not
+      planned to be included in the next release. For example when you want to
+      release version 1.14.0, there should also be a version 1.15.0 and
+      "1.16.0 or later". To limit the amount of JIRA mails on the mailinglist,
+      please rename versions instead of mass moving issues.</para>
     </section>
 
     <section>
@@ -225,17 +226,27 @@
       first prepare the release, then perform the release.</para>
 
       <para>Make sure you start with a fresh checkout from github before
-      actually attempting to release anything. Checkout command for GWT2 client project:</para>
+      actually attempting to release anything. Checkout command for GWT2
+      client project:</para>
 
       <programlisting>git clone git@github.com:geomajas/geomajas-project-client-gwt2.git &lt;destination folder&gt;
 		 git checkout &lt;branch name&gt;</programlisting>
 
-      <para>It might be that after the clone/checkout you have to make sure that you
-      have write access to all files and folders within the newly created
-      &lt;destination folder&gt;.</para>
+      <para>It might be that after the clone/checkout you have to make sure
+      that you have write access to all files and folders within the newly
+      created &lt;destination folder&gt;.</para>
 
       <section>
-        <title>Maven release-prepare</title>
+        <title>Option 1: via Jenkins</title>
+
+        <para>It's possible to release a project from Jenkins. Just open the
+        project, click on the "Perform Maven Release" link and fill in the
+        desired versions to start a release. If everything goes well, continue
+        to the <link linkend="Finish_staging">next chapter</link>.</para>
+      </section>
+
+      <section>
+        <title>Option 2: Maven release-prepare</title>
 
         <para>Go to the top folder of the plug-in you want to release and
         execute the following maven command:</para>
@@ -296,7 +307,7 @@
       </section>
 
       <section>
-        <title>Maven release-perform</title>
+        <title>Option 2 continued: Maven release-perform</title>
 
         <para>The next step is to actually let maven perform the release. This
         can be done with the following command:</para>
@@ -312,7 +323,7 @@
     </section>
 
     <section>
-      <title>Finish the staging procedure</title>
+      <title id="Finish_staging">Finish the staging procedure</title>
 
       <para>Now that the release has been placing in the staging area on
       sonatype, we can work towards finishing the staging procedure. In order
@@ -320,8 +331,8 @@
 
       <itemizedlist>
         <listitem>
-          <para>Update master branch. Check if the versions have rolled to the next
-          snapshot version.</para>
+          <para>Update master branch. Check if the versions have rolled to the
+          next snapshot version.</para>
         </listitem>
 
         <listitem>
@@ -505,9 +516,9 @@
   <section>
     <title>Additional notes for releasing the Geomajas server project</title>
 
-    <para>When releasing the Geomajas server project, you will have problems building
-    the javadocs. Once the "release:perform" failed, execute the following
-    steps.</para>
+    <para>When releasing the Geomajas server project, you will have problems
+    building the javadocs. Once the "release:perform" failed, execute the
+    following steps.</para>
 
     <programlisting>cd target/checkout
 mvn install
@@ -516,17 +527,18 @@ mvn release:perform</programlisting>
 
     <para>At this moment, the server project should be available in sonatype.
     Download one of the jars and check the contents to see if all is well. If
-    it is, close the staging repository to place the server project officially in
-    staging.</para>
+    it is, close the staging repository to place the server project officially
+    in staging.</para>
 
-    <para>When releasing the Geomajas server project, you must also be aware that this
-    releases only the modules within the server project, not the client side code.
-		A separate release of the client project or other projects might be necessary:</para>
+    <para>When releasing the Geomajas server project, you must also be aware
+    that this releases only the modules within the server project, not the
+    client side code. A separate release of the client project or other
+    projects might be necessary:</para>
 
     <itemizedlist>
       <listitem>
-        <para>documentation project (user guide, contributor guide, getting started
-        guide)</para>
+        <para>documentation project (user guide, contributor guide, getting
+        started guide)</para>
       </listitem>
 
       <listitem>
@@ -568,31 +580,29 @@ mvn release:perform</programlisting>
   <section>
     <title>Additional notes for releasing a GWT client project</title>
 
-    <para>Before releasing the GWT client project, make sure that the “getVersion”
-    method in the Geomajas.java class has been set to the correct
+    <para>Before releasing the GWT client project, make sure that the
+    “getVersion” method in the Geomajas.java class has been set to the correct
     version. An equivalent in GWT2 client project does not exist.</para>
 
-	  <section>
-		  <title>Finish the release</title>
+    <section>
+      <title>Finish the release</title>
 
-		  <para>Upload the war of the showcase module to apps.geomajas.org.</para>
-
-	  </section>
+      <para>Upload the war of the showcase module to apps.geomajas.org.</para>
+    </section>
   </section>
 
   <section>
     <title>Additional notes for releasing a quickstart application</title>
 
     <para>TODO</para>
-
   </section>
 
   <section>
     <title>Possible problems and solutions</title>
 
-    <para>When releasing the server core, there may be a problem building
-    the javadocs. The solution can be to do a local build of the server
-    using the next release version before doing the actual release.</para>
+    <para>When releasing the server core, there may be a problem building the
+    javadocs. The solution can be to do a local build of the server using the
+    next release version before doing the actual release.</para>
 
     <para>The documentation uses the example applications for extracting code
     which is included in the manual. Sometimes (it shouldn't) this is a
