@@ -9,7 +9,6 @@
   ~ by the Geomajas Contributors License Agreement. For full licensing
   ~ details, see LICENSE.txt in the project root.
   -->
-
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <chapter id="developers" lang="en">
@@ -18,43 +17,13 @@
   <section id="maveninfo">
     <title>maven compilation, targets, profiles, variables</title>
 
-    <para>The source code of the Geomajas projects contains one main pom which allows building of the
-    Geomajas framework and each of the sample applications in one go.</para>
+    <para>The source code of each Geomajas project contains one main pom which
+    allows building of this project. Projects may contain multiple modules and
+    examples. You can choose to build modules individually.</para>
 
-    <para>You can also choose to build them individually.</para>
+    <para>You can build projects and/or modules using</para>
 
-    <para>There are a couple of profiles defined which should help during
-    development:</para>
-
-    <itemizedlist>
-
-      <listitem>
-        <para>-DskipDocs: do not build the documentation module. Can speed up
-        the build a little.</para>
-      </listitem>
-
-      <listitem>
-        <para>-DskipGwt: skip the GWT compilation phases. Useful when you just
-        want a quick compile or don't want/need the compile to
-        JavaScript.</para>
-      </listitem>
-
-      <listitem>
-        <para><code>-Dfull-build</code>: from the root project, this enables
-        inclusion of the build tools and documentation in the build. This is
-        actually enabled by default (to disable use
-        <code>-Dhudson</code>"),</para>
-      </listitem>
-
-      <listitem>
-        <para><code>-Dhudson</code>: profile for running the selenium
-        integration tests on the Jenkins (previously Hudson) continuous integration server. As long
-        as running the tests on the ci server proves problematic, this will
-        disable these tests.</para>
-      </listitem>
-    </itemizedlist>
-
-    <para></para>
+    <para><programlisting>mvn install</programlisting></para>
 
     <section id="GWTbuild">
       <title>GWT build</title>
@@ -68,7 +37,11 @@
 
       <para><programlisting>&lt;!-- set target browser to compile for, use this to limit to the browser used for testing --&gt;
 &lt;!-- where value = "ie6/opera/gecko1_8/safari/gecko" , "gecko1_8" is FireFox 3 --&gt;
-&lt;set-property name="user.agent" value="gecko1_8" /&gt;</programlisting></para>
+&lt;set-property name="user.agent" value="gecko1_8" /&gt;</programlisting>Alternatively
+      you can use the collapse-all-properties setting, this will generate a
+      single gwt compilation, without specific browsers optimalisations.
+      Include the following excerpt in your <code>Xxx.gwt.xml </code>file to
+      activate the single compilation mode.<programlisting>&lt;collapse-all-properties /&gt;</programlisting></para>
     </section>
 
     <section id="runexample">
@@ -78,27 +51,29 @@
       entire tree or an "example" directory, you can use maven to run the
       example applications.</para>
 
-      <para>For the GWT client projects, you have three options. First, go to the example directory, e.g.
-		  "geomajas-client-gwt2-example" for GWT2 client showcase. Then,</para>
-		<orderedlist>
-		<listitem>you can run the application in
-      development mode using <programlisting>mvn gwt:run</programlisting></listitem>
+      <para>For the GWT client projects, you have three options. First, go to
+      the example directory, e.g. "geomajas-project-client-gwt2/example" for
+      GWT2 client showcase. Then,</para>
 
-      <note>
-        <para>Due to classpath problems and the gwt-maven-plugin which does
-        not properly handle excluded dependencies (the "provided" scope), this
-        can fail on some systems.</para>
-      </note>
+      <orderedlist>
+        <listitem>you can run the application in development mode using
+        <programlisting>mvn gwt:run</programlisting></listitem>
 
-      <listitem>you can also use jetty to run the normally built
-      application<programlisting>mvn jetty:run</programlisting></listitem>
+        <note>
+          <para>Due to classpath problems and the gwt-maven-plugin which does
+          not properly handle excluded dependencies (the "provided" scope),
+          this can fail on some systems.</para>
+        </note>
 
-      <listitem>you can run the actual war using <programlisting>mvn jetty:run-war</programlisting><note>
-          <para>It can be advisable to run "mvn clean" between "gwt:run" and
-          "jetty:run-war" or the classpath problem from the previous footnote
-          may appear again.</para>
-        </note></listitem>
-		</orderedlist>
+        <listitem>you can also use jetty to run the normally built
+        application<programlisting>mvn jetty:run</programlisting></listitem>
+
+        <listitem>you can run the actual war using <programlisting>mvn jetty:run-war</programlisting><note>
+            <para>It can be advisable to run "mvn clean" between "gwt:run" and
+            "jetty:run-war" or the classpath problem from the previous
+            footnote may appear again.</para>
+          </note></listitem>
+      </orderedlist>
     </section>
   </section>
 
@@ -120,12 +95,13 @@
         </listitem>
 
         <listitem>
-          <para>end user guide: documentation for end users of applications
-          built using Geomajas.</para>
+          <para>end user guides: documentation for end users of applications
+          built using Geomajas, based on the example (quickstart)
+          applications.</para>
         </listitem>
       </itemizedlist></para>
 
-    <para>Apart from that, each client project and each plug-in has their own
+    <para>Apart from that, each project and each plug-in has their own
     documentation.</para>
 
     <para>All documentation is written in docbook format to allow both PDF and
@@ -134,8 +110,8 @@
 
     <para>For editing the docbook files, we recommend using <ulink
     url="http://www.xmlmind.com/xmleditor/">XMLMind</ulink>. The personal
-    version is free and can (at the time of writing) be used for editing open
-    source documentation.</para>
+    version (4.5.1) is free and can (at the time of writing) be used for
+    editing open source documentation.</para>
 
     <para>The docbook files are currently formatted using XMLMind. When using
     another tool for editing, please keep the current formatting to assure
@@ -146,9 +122,9 @@
     The build process for the documentation automatically updates these
     excepts. The directories which have to be scanned for excepts are
     specified in the pom. When this includes code which is not in the current
-    versioned entity (the root directory for the client project or plug-in), then the
-    source needs to be obtained from a dependency and unpacked. Excerpts can
-    be annotated using annotations like</para>
+    versioned entity (the root directory for the client project or plug-in),
+    then the source needs to be obtained from a dependency and unpacked.
+    Excerpts can be annotated using annotations like</para>
 
     <para><programlisting>&lt;!-- @extract-start AllowAllSecurity, Allow full access to everybody --&gt;
 &lt;bean name="security.securityInfo" class="org.geomajas.security.SecurityInfo"&gt;
@@ -248,31 +224,23 @@ for (String line : lines) {
 
       <listitem>
          patch: bugfixes and smaller improvements. 
+
+        <text />
       </listitem>
     </itemizedlist>
+
+    <para>Milestone releases (release candidates) have the same
+    major.minor.patch structure, followed by a serial number -Mn, for example
+    1.0.0-M1. Milestone releases should be avoided and are only allowed in the
+    case that a regular release is not possible, It should be followed by a
+    regular release as soon as possible.</para>
   </section>
 
   <section id="commits">
     <title>Git, commits</title>
 
-    <para>New committers need to sign an agreement which hands over copyright
-    to Geosparc. Policies are needed for assigning commit rights (see
-    below).</para>
-
-    <para>All Git commits should include the JIRA issue number at the start of
-    the commit message, and a short description of the work done. The JIRA
-    issue number allows linking the commits with the issues (as can be seen in
-    JIRA), the short message allows persons to know what is happening without
-    referring to JIRA. The only times JIRA issue number are not needed is for
-    making "obvious" changes like fixing typos.</para>
-
-    <para>Commits should be grouped by issue as much as possible/sensible
-    (better two commits than one commit for fixing two issues, better one
-    commit of five files than five commits of one file (for one
-    issue)).</para>
-
-    <para>Development of the "latest-and-greatest" version happens in
-    the "master" branch.</para>
+    <para>Development of the "latest-and-greatest" version happens in the
+    "master" branch.</para>
 
     <para>Continued development on earlier versions (when not
     "latest-and-greatest") occur in branches with the future version number as
@@ -285,13 +253,112 @@ for (String line : lines) {
     cases should still succeed. There is a continuous integration engine
     (Jenkins) which verifies this and send messages to the commit mailing list
     on failures.</para>
+
+    <section>
+      <title>Github</title>
+
+      <para>Geomajas uses Github as Source Code Management system, the source
+      code can be accessed at <link
+      linkend="???">https://github.com/geomajas</link>.</para>
+    </section>
+
+    <section>
+      <title>Commits, Forks, Branches an Pull requests</title>
+
+      <para>Anybody can commit to Geomajas, this is easy: just fork the
+      project (or create a branch if you hava commit rights), apply your
+      changes and create a pull request. This will be reviewed by the
+      community, and merged into master if it is found a worthy addition to
+      the project by a voting process. Just keep in mind some basic
+      rules:</para>
+
+      <section>
+        <title>Commits</title>
+
+        <para>New committers need to sign an agreement which hands over
+        copyright to Geosparc, alternatively they need to state in the pull
+        request that <quote>I have read and agree with the Geomajas CLA for
+        the contents of this pull request</quote>.</para>
+
+        <para>All Git commits should include the JIRA issue number at the
+        start of the commit message, and a short description of the work done.
+        The JIRA issue number allows linking the commits with the issues (as
+        can be seen in JIRA), the short message allows persons to know what is
+        happening without referring to JIRA. The only times JIRA issue number
+        are not needed is for making "obvious" changes like fixing
+        typos.</para>
+
+        <para>Commits should be grouped by issue as much as possible/sensible
+        (better two commits than one commit for fixing two issues, better one
+        commit of five files than five commits of one file (for one
+        issue)).</para>
+
+        <para>After each commit, the system should still compile and all test
+        cases should still succeed. </para>
+
+        <para>There is a continuous integration engine (Jenkins/Travis-ci)
+        which verifies this and sends messages to the commit mailing list on
+        failures.</para>
+
+        <para>Regular comitters can be assigned commit rights (see
+        below).</para>
+      </section>
+
+      <section>
+        <title>Forks and Branches</title>
+
+        <para>All commits should be done in branches or on forks, branching
+        must be started from the first commit after a release, a convenience
+        start branch will be created after every release (for example:
+        1.1.0-START, after release 1.0.0). The branches should be named after
+        the JIRA issue, optionally followed by a short description.</para>
+      </section>
+
+      <section>
+        <title>Pull requests</title>
+
+        <para>After opening a pull request you can notify the community of
+        this pull request by forwarding it to the developer mailing list.
+        Please check that everything builds before opening a pull
+        request.</para>
+
+        <para>Pull requests need to be voted, this can happen on the
+        mailinglist thread, or in the comments of the pull request on Github.
+        Please keep in mind following rules:</para>
+
+        <itemizedlist>
+          <listitem>
+            <para>Everybody is free to vote</para>
+          </listitem>
+
+          <listitem>
+            <para>It is required to have two +1 binding (=PSC member) votes
+            and no -1 binding votes</para>
+          </listitem>
+
+          <listitem>
+            <para>Pull requests (except bugfixes) should stay open for at
+            least 48 hours to allow voting, if additional commits are added to
+            the pull request the vote duration is extended to 48 hours after
+            the last commit time</para>
+          </listitem>
+
+          <listitem>
+            <para>Everybody with commit rights can merge pull requests, the
+            vote count should be added to the comments when merging</para>
+          </listitem>
+        </itemizedlist>
+      </section>
+    </section>
   </section>
 
   <section id="coding">
     <title>Coding</title>
 
     <para>Note that details about coding style and naming are on the <xref
-    linkend="codingstyle">coding style</xref> page.</para>
+        linkend="codingstyle">
+        coding style
+      </xref> page.</para>
 
     <section id="logging">
       <title>Logging</title>
@@ -304,7 +371,7 @@ for (String line : lines) {
         </listitem>
 
         <listitem>
-           all logging is done through slf4j, logger is created using
+           all logging is done through slf4j, logger is created using 
 
           <programlisting>private final Logger log = LoggerFactory.getLogger( ContainingClassName.class );</programlisting>
 
