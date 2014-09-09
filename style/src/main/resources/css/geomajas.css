@@ -13,11 +13,6 @@
 
 /*---- TITLE BLOCK ----*/
 
-.book {
-	background: #FFFFFF url(../images/header.png) no-repeat;
-	padding-top: 90px;
-}
-
 .releaseinfo, .copyright {
 	padding: 0 10px;
 }
