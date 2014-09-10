@@ -348,6 +348,9 @@ for (String line : lines) {
             vote count should be added to the comments when merging</para>
           </listitem>
         </itemizedlist>
+		  <para>The JIRA issue associated with the pull request should be and remain in status IN PROGRESS, with the
+		  requesting developper assigned to it. Only when the pull request vote has been accepted,
+		  the JIRA issue should be resolved with status FIXED.</para>
       </section>
     </section>
   </section>
