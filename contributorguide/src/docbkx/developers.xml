@@ -348,7 +348,32 @@ for (String line : lines) {
             vote count should be added to the comments when merging</para>
           </listitem>
         </itemizedlist>
+		  <para>When a vote is successful, the pull request can be merged. The working branch that is merged
+		  into master will be deleted immediately.</para>
       </section>
+		<section>
+			<title>Stale branches on GitHub</title>
+			<para>The number of working branches on a git project can be quite high.
+				It is advisable that only active branches are present on a git repository.
+				This avoids good code getting lost and urges developers to let finish work that has started.</para>
+			<para>Therefor, the Geomajas community will regularly try to clean up
+				the inactive branches on the different repositories.
+				GitHub uses term 'stale' for a branches that have not been pushed to in the last three months.
+			When a branch becomes stale, the community will take action:</para>
+			<itemizedlist>
+				<listitem>
+					<para>In case stale branch is 0 commits ahead of master
+						- i.e. no code in the branch that is not in master - ,
+						the branch will be removed without notifying the owner.</para>
+				</listitem>
+				<listitem>
+					<para>In case stale branch is some commits ahead of master
+						- i.e. there is some code in the branch that is not in master - ,
+						the branch owner will be notified by mail. The owner will be asked to
+						take some action to review the uncommitted code and make a pull request if appropriate.</para>
+				</listitem>
+			</itemizedlist>
+		</section>
     </section>
   </section>
 
