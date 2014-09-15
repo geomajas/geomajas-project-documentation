@@ -356,7 +356,7 @@ for (String line : lines) {
 			<para>The number of working branches on a git project can be quite high.
 				It is advisable that only active branches are present on a git repository.
 				This avoids good code getting lost and urges developers to let finish work that has started.</para>
-			<para>Therefor, the Geomajas community will regularly try to clean up
+			<para>Therefore, the Geomajas community will regularly try to clean up
 				the inactive branches on the different repositories.
 				GitHub uses term 'stale' for a branches that have not been pushed to in the last three months.
 			When a branch becomes stale, the community will take action:</para>
