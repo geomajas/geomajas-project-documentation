@@ -18,7 +18,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.geomajas.documentation</groupId>
 	<artifactId>application.smartgwt.archetype</artifactId>
-	<version>1.12.0-SNAPSHOT</version>
+	<version>1.12.0</version>
 	<packaging>jar</packaging>
 	<name>SmartGWT Example Application Guide</name>
 	<description>SmartGWT Example Application Guide</description>

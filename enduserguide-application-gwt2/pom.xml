@@ -18,7 +18,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.geomajas.documentation</groupId>
 	<artifactId>application.gwt2.archetype</artifactId>
-	<version>1.12.0-SNAPSHOT</version>
+	<version>1.12.0</version>
 	<packaging>jar</packaging>
 	<name>GWT2 Example Application Guide</name>
 	<description>GWT2 Example Application Guide</description>
