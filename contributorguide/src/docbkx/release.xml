@@ -137,6 +137,10 @@
 
     <orderedlist>
       <listitem>
+        <para>Create a release issue in JIRA</para>
+      </listitem>
+
+      <listitem>
         <para>Prepare release (on master)</para>
       </listitem>
 
@@ -164,6 +168,17 @@
         <para>Announce</para>
       </listitem>
     </orderedlist>
+
+    <section>
+      <title>Create a release issue</title>
+
+      <para>You should create a release issue under the general geomajas
+      project in JIRA (key: MAJ), there is an issue type "Release" especially
+      for releases. This issue type contains a checklist that needs to be done
+      to successfully release a project, the checklist consists of the steps
+      from this guide extended with some adittional steps. All steps in the
+      checklist should be completed to resolve the release issue.</para>
+    </section>
 
     <section>
       <title>Prepare release</title>

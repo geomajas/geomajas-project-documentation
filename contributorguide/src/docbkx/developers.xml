@@ -223,7 +223,7 @@ for (String line : lines) {
       </listitem>
 
       <listitem>
-         patch: bugfixes and smaller improvements. 
+         patch: bugfixes and smaller improvements.
 
         <text />
       </listitem>
@@ -266,11 +266,10 @@ for (String line : lines) {
       <title>Commits, Forks, Branches an Pull requests</title>
 
       <para>Anybody can commit to Geomajas, this is easy: just fork the
-      project (or create a branch if you hava commit rights), apply your
-      changes and create a pull request. This will be reviewed by the
-      community, and merged into master if it is found a worthy addition to
-      the project by a voting process. Just keep in mind some basic
-      rules:</para>
+      project (or create a branch if you have commit rights), apply your
+      changes and create a pull request. The pull request will be reviewed by
+      the community, if it is found a worthy addition to the project it will
+      be merged into master. The reviewing happens by a voting process.</para>
 
       <section>
         <title>Commits</title>
@@ -294,7 +293,7 @@ for (String line : lines) {
         issue)).</para>
 
         <para>After each commit, the system should still compile and all test
-        cases should still succeed. </para>
+        cases should still succeed.</para>
 
         <para>There is a continuous integration engine (Jenkins/Travis-ci)
         which verifies this and sends messages to the commit mailing list on
@@ -309,22 +308,21 @@ for (String line : lines) {
 
         <para>All commits should be done in branches or on forks, branching
         must be started from the first commit after a release, a convenience
-        start branch will be created after every release (for example:
-        1.1.0-START, after release 1.0.0). The branches should be named after
-        the JIRA issue, optionally followed by a short description.</para>
+        start branch is created after every release (for example: 1.1.0-START,
+        after release 1.0.0). The working branches should be named after the
+        JIRA issue, optionally followed by a short description.</para>
       </section>
 
       <section>
         <title>Pull requests</title>
 
-        <para>After opening a pull request you can notify the community of
-        this pull request by forwarding it to the developer mailing list.
-        Please check that everything builds before opening a pull
-        request.</para>
+        <para>Please check that everything builds before opening a pull
+        request. After opening this pull request you can notify the community
+        by forwarding the request to the developer mailing list.</para>
 
         <para>Pull requests need to be voted, this can happen on the
         mailinglist thread, or in the comments of the pull request on Github.
-        Please keep in mind following rules:</para>
+        The voting process has following rules:</para>
 
         <itemizedlist>
           <listitem>
@@ -351,7 +349,32 @@ for (String line : lines) {
 		  <para>The JIRA issue associated with the pull request should be and remain in status IN PROGRESS, with the
 		  requesting developer assigned to it. Only when the pull request vote has been accepted,
 		  the JIRA issue should be resolved with status FIXED.</para>
+		  <para>When a vote is successful, the pull request can be merged. The working branch that is merged
+		  into master will be deleted immediately.</para>
       </section>
+		<section>
+			<title>Stale branches on GitHub</title>
+			<para>The number of working branches on a git project can be quite high.
+				It is advisable that only active branches are present on a git repository.
+				This avoids good code getting lost and urges developers to let finish work that has started.</para>
+			<para>Therefore, the Geomajas community will regularly try to clean up
+				the inactive branches on the different repositories.
+				GitHub uses term 'stale' for a branches that have not been pushed to in the last three months.
+			When a branch becomes stale, the community will take action:</para>
+			<itemizedlist>
+				<listitem>
+					<para>In case stale branch is 0 commits ahead of master
+						- i.e. no code in the branch that is not in master - ,
+						the branch will be removed without notifying the owner.</para>
+				</listitem>
+				<listitem>
+					<para>In case stale branch is some commits ahead of master
+						- i.e. there is some code in the branch that is not in master - ,
+						the branch owner will be notified by mail. The owner will be asked to
+						take some action to review the uncommitted code and make a pull request if appropriate.</para>
+				</listitem>
+			</itemizedlist>
+		</section>
     </section>
   </section>
 
@@ -360,7 +383,7 @@ for (String line : lines) {
 
     <para>Note that details about coding style and naming are on the <xref
         linkend="codingstyle">
-        coding style
+         coding style 
       </xref> page.</para>
 
     <section id="logging">
@@ -379,6 +402,18 @@ for (String line : lines) {
           <programlisting>private final Logger log = LoggerFactory.getLogger( ContainingClassName.class );</programlisting>
 
            
+        </listitem>
+
+        <listitem>
+          <para>all client side logging is done via java logging, logger is
+          created using</para>
+
+          <para><programlisting>import java.util.logging.Level;
+import java.util.logging.Logger;
+ 
+private static Logger logger = Logger.getLogger(DomTileLevelLayerRenderer.class.getName());
+...
+logger.log(Level.INFO, "Rendering " + renderingInfo.getView().getResolution());</programlisting></para>
         </listitem>
 
         <listitem>
