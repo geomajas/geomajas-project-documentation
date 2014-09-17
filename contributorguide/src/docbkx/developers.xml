@@ -226,8 +226,6 @@ for (String line : lines) {
          patch: bugfixes and smaller improvements.
 
         <text />
-
-        
       </listitem>
     </itemizedlist>
 
@@ -348,6 +346,9 @@ for (String line : lines) {
             vote count should be added to the comments when merging</para>
           </listitem>
         </itemizedlist>
+		  <para>The JIRA issue associated with the pull request should be and remain in status IN PROGRESS, with the
+		  requesting developer assigned to it. Only when the pull request vote has been accepted,
+		  the JIRA issue should be resolved with status FIXED.</para>
 		  <para>When a vote is successful, the pull request can be merged. The working branch that is merged
 		  into master will be deleted immediately.</para>
       </section>

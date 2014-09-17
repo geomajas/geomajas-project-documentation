@@ -134,4 +134,44 @@
       </listitem>
     </itemizedlist>
   </section>
+	<section id="jira-status">
+		<title>Working on a JIRA issue</title>
+		<para>The status of a Jira issue should indicate the work status correctly at any time.</para>
+
+		<section id="jira-status-start">
+			<title>Start work on issue</title>
+			<para>When starting work on an issue, the developer should assign the issue
+				to her- or himself ("Assign to me" link) and change the issue status
+				from OPEN to IN PROGRESS ("Start Progress" button).</para>
+		</section>
+
+		<section id="jira-status-stop">
+			<title>Stop work on issue</title>
+		<para>Work on an issue can stop for a number of reasons. This should be reflected in the
+			JIRA issue status:</para>
+
+		<itemizedlist>
+			<listitem>
+				<para>Work is not finished, but developer will not continue working on it:
+					change the status back to "OPEN" ("Stop Progress" button) and
+				assign to "Unassigned". In a comment message, developer can give some info, e.g. in what
+				branch some preliminary code can be found.</para>
+			</listitem>
+
+			<listitem>
+				<para>Work is finished: a pull request can be created - see Git section.
+					The status of the Jira issue should not be changed at this point; it stays IN PROGRESS.
+					Only when the pull request has been accepted and merged,
+					the issue should be resolved ("Resolve Issue" button) with FIXED status.</para>
+			</listitem>
+
+			<listitem>
+				<para>Issue has become irrelevant: e.g. when the issue is a duplication, the bug
+				is resolved already ... Resolve the issue ("Resolve Issue" button),
+				but choose a more appropriate status than FIXED, e.g. DUPLICATE, OUTDATED, ...</para>
+			</listitem>
+		</itemizedlist>
+
+		</section>
+	</section>
 </chapter>
