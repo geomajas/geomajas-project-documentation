@@ -68,8 +68,6 @@
 
 	<modules>
 	<!-- don't release
-		<module>style</module> -->
-		<!--
 		<module>xslt</module>
 		-->
 		<module>gettingstarted</module>
