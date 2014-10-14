@@ -229,7 +229,7 @@ for (String line : lines) {
       </listitem>
     </itemizedlist>
 
-    <para>Milestone releases (release candidates) have the same
+    <para>Milestone releases have the same
     major.minor.patch structure, followed by a serial number -Mn, for example
     1.0.0-M1. Milestone releases should be avoided and are only allowed in the
     case that a regular release is not possible, It should be followed by a
@@ -308,8 +308,10 @@ for (String line : lines) {
 
         <para>All commits should be done in branches or on forks, branching
         must be started from the first commit after a release, a convenience
-        start branch is created after every release (for example: 1.1.0-START,
-        after release 1.0.0). The working branches should be named after the
+        start branch is created after every release. (This start branch is named with the same
+		version of the current snapshot. For example: after 1.0.0 release, the snapshot version is
+			1.1.0-SNAPSHOT (next minor version) and a 1.1.0-START branch is created. There should be one start branch per project.)
+        The working branches should be named after the
         JIRA issue, optionally followed by a short description.</para>
       </section>
 

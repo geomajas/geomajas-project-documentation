@@ -169,6 +169,37 @@
       </listitem>
     </orderedlist>
 
+	  <section>
+		  <title>Determine the release version and new snapshot version</title>
+		  <itemizedlist>
+			  <listitem>
+				  <para>BUGFIX: When the code changes of the current release are only bug fixes, the release number
+					  only needs to increase the last number of the last release.</para>
+				  <para>e.g. last release: 1.0.0; current snapshot 1.1.0-SNAPSHOT => new bugfix release number: 1.0.1;
+					  snapshot stays 1.1.0-SNAPSHOT (next minor number)</para>
+			  </listitem>
+			  <listitem>
+				  <para>MINOR: code changes include minor functional changes. Use a release candidate strategy, see just below.</para>
+				  <para>e.g. last release: 1.0.0; current snapshot 1.1.0-SNAPSHOT => new bugfix release number: 1.1.0;
+					  new snapshot 1.2.0-SNAPSHOT (next minor number)</para>
+			  </listitem>
+			  <listitem>
+				  <para>MAJOR: code changes include major functional changes. Use a release candidate strategy, see just below.</para>
+				  <para>e.g. last release: 1.0.0; current snapshot 1.1.0-SNAPSHOT => new bugfix release number: 2.0.0;
+					  new snapshot 2.1.0-SNAPSHOT (next minor number)</para>
+			  </listitem>
+		  </itemizedlist>
+
+		  <para>In case of a minor or major release, a release candidates (RC) strategy is advisable.
+			  Instead of staging the real version, stage a RC version, starting with RC1.
+			  If the RC1 release vote does not pass the community test, a RC2 can be staged with requested stages, etc...
+			  Once the vote for a RCx passes, the code of the RCx code is used for the real version.
+			  This real version can be promoted from staging immediately, without a vote.</para>
+		  <para>e.g. for releasing minor release 1.1.0, place 1.1.0-RC1 in staging.
+			  If 1.1.0-R5 is successful, release 1.1.0 from the code of 1.1.0-RC5.</para>
+		  <para>RC releases don't have JIRA issues and they are not promoted from staging.</para>
+	  </section>
+
     <section>
       <title>Create a release issue</title>
 
@@ -245,7 +276,7 @@
       client project:</para>
 
       <programlisting>git clone git@github.com:geomajas/geomajas-project-client-gwt2.git &lt;destination folder&gt;
-		 git checkout &lt;branch name&gt;</programlisting>
+git checkout &lt;branch name&gt;</programlisting>
 
       <para>It might be that after the clone/checkout you have to make sure
       that you have write access to all files and folders within the newly
@@ -436,9 +467,9 @@
               <para>The artifacts are available in the staging repository:
               https://oss.sonatype.org/content/groups/staging</para>
 
-              <para>To make sure you can use the artifacts you have to add
-              this repository in your local maven settings:
-              ~/.m2/settings.xml:</para>
+              <para>For testing purposes, following repository can be added in your local maven settings:
+              ~/.m2/settings.xml. We don't encourage adding this repository permanently to your configuration since
+			  its content does not contain officially approved Geomajas artefacts.</para>
 
               <para><programlisting>&lt;settigs&gt;
   &lt;profiles&gt;
@@ -486,6 +517,9 @@
       the release version in trunk need to be rolled to the new snapshot
       version. The version number is skipped. The release date in JIRA is
       actually the staging date.</para>
+
+		<para>In case a release candidate (RC) version is successful, release the real version without a vote.
+		When the real release is finished successfully, drop the successful RC staging.</para>
 
       <para>The geomajas-dep pom and aggregate.sh need to be updated for the
       newly released versions respectively.</para>

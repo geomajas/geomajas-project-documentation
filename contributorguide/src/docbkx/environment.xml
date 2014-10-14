@@ -61,15 +61,7 @@
                     &lt;url&gt;http://repo.geomajas.org/nexus/content/groups/public&lt;/url&gt;
                 &lt;/repository&gt;
 
-                &lt;!-- uncomment if you want to use Geomajas staging,
-                  comment for faster builds --&gt;
-                &lt;repository&gt;
-                  &lt;id&gt;oss-staging&lt;/id&gt;
-                  &lt;name&gt;Geomajas staging repository&lt;/name&gt;
-                  &lt;url&gt;https://oss.sonatype.org/content/groups/staging&lt;/url&gt;
-                &lt;/repository&gt;
-
-                &lt;!-- uncomment if you want to use Geomajas snapshots, 
+                &lt;!-- uncomment if you want to use Geomajas snapshots,
                      comment for faster builds --&gt;
                 &lt;repository&gt;
                     &lt;id&gt;Geomajas-latest&lt;/id&gt;
@@ -94,6 +86,22 @@
     &lt;/activeProfiles&gt;
 &lt;/settings&gt;</programlisting></para>
         </listitem>
+
+		  <listitem>
+			  <para>FYI: the Geomajas staging repository can be added with the configuration below. This repository contains
+				  artefacts that are suggested for a release; it does not contain official artefacts.
+				  The use of this repository is not encouraged. It should only be used for testing the suggested artefacts.
+				  <programlisting>...
+&lt;repositories&gt;
+...
+    &lt;repository&gt;
+        &lt;id&gt;oss-staging&lt;/id&gt;
+        &lt;name&gt;Geomajas staging repository&lt;/name&gt;
+        &lt;url&gt;https://oss.sonatype.org/content/groups/staging&lt;/url&gt;
+    &lt;/repository&gt;
+...
+&lt;/repositories&gt;</programlisting></para>
+		  </listitem>
 
         <listitem>
           <para>If the file is already present, add the above content to the
