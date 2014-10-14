@@ -184,7 +184,7 @@
 					  new snapshot 1.2.0-SNAPSHOT (next minor number)</para>
 			  </listitem>
 			  <listitem>
-				  <para>MAJOR: code changes include major functional changes. Use a release candidate strategy, see just below.</para>
+				  <para>MAJOR: code changes include major functional changes and/or api changes. Use a release candidate strategy, see just below.</para>
 				  <para>e.g. last release: 1.0.0; current snapshot 1.1.0-SNAPSHOT => new bugfix release number: 2.0.0;
 					  new snapshot 2.1.0-SNAPSHOT (next minor number)</para>
 			  </listitem>
