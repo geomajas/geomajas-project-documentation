@@ -330,8 +330,8 @@ for (String line : lines) {
           </listitem>
 
           <listitem>
-            <para>It is required to have two +1 binding (=PSC member) votes
-            and no -1 binding votes</para>
+            <para>Pull requests require two +1 binding - PSC member - votes (bugfix only needs one)
+            and no -1 binding votes.</para>
           </listitem>
 
           <listitem>
