@@ -306,13 +306,12 @@ for (String line : lines) {
       <section>
         <title>Forks and Branches</title>
 
-        <para>All commits should be done in branches or on forks, branching
-        must be started from the first commit after a release, a convenience
-        start branch is created after every release. (This start branch is named with the same
-		version of the current snapshot. For example: after 1.0.0 release, the snapshot version is
-			1.1.0-SNAPSHOT (next minor version) and a 1.1.0-START branch is created. There should be one start branch per project.)
-        The working branches should be named after the
-        JIRA issue, optionally followed by a short description.</para>
+        <para>All commits should be done in branches or on forks.
+			New branches are best started from the current master branch of the project.
+			Please use the following naming convention for branches:
+			initials of developer + the JIRA issue key + a short description of the work.
+			If developer John Doe wants to work on issue ISSUE-52, the branch name should be like:</para>
+		  <programlisting>jd-ISSUE-52_bugFixOnImpl</programlisting>
       </section>
 
       <section>
@@ -323,7 +322,7 @@ for (String line : lines) {
         by forwarding the request to the developer mailing list.</para>
 
         <para>Pull requests need to be voted, this can happen on the
-        mailinglist thread, or in the comments of the pull request on Github.
+        mailing list thread, or in the comments of the pull request on Github.
         The voting process has following rules:</para>
 
         <itemizedlist>
